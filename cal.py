@@ -1,21 +1,24 @@
 import streamlit as st
 import calculator
 
-st.title("📘 Simple Calculator")
+st.title("🧮 Simple Calculator")
 
-choice = st.selectbox("Select Operation", ["Add", "Subtract", "Multiply", "Divide"])
+operation = st.selectbox(
+    "Choose Operation",
+    ["Add", "Subtract", "Multiply", "Divide"]
+)
 
-a = st.number_input("Enter first number", value=0.0)
-b = st.number_input("Enter second number", value=0.0)
+num1 = st.number_input("Enter first number", value=0.0)
+num2 = st.number_input("Enter second number", value=0.0)
 
 if st.button("Calculate"):
-    if choice == "Add":
-        result = calculator.add(a, b)
-    elif choice == "Subtract":
-        result = calculator.subtract(a, b)
-    elif choice == "Multiply":
-        result = calculator.multiply(a, b)
-    elif choice == "Divide":
-        result = calculator.divide(a, b)
+    if operation == "Add":
+        result = calculator.add(num1, num2)
+    elif operation == "Subtract":
+        result = calculator.subtract(num1, num2)
+    elif operation == "Multiply":
+        result = calculator.multiply(num1, num2)
+    elif operation == "Divide":
+        result = calculator.divide(num1, num2)
 
     st.success(f"Result = {result}")
